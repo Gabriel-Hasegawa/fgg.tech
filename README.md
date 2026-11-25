@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FGG Tech — landing page
 
 Site institucional estático da FGG Tech. HTML, CSS e JavaScript, sem backend, banco de dados ou etapa de build.
@@ -107,3 +108,7 @@ Itens que dependem de informação ou arquivo de quem publica o site:
 - Revisão dos textos institucionais, se a empresa quiser uma redação própria.
 
 A demonstração da Hasegawa Denki já aponta para `projects/hasegawa/index.html`. O Case Master Info abre `https://casemasterinfo.com.br/` em uma nova aba.
+=======
+# fgg.tech
+desenvolvimento de landing page para empresa FGG tech
+>>>>>>> 8c450d0c6db720985423c17ff1602ce662a2165c
