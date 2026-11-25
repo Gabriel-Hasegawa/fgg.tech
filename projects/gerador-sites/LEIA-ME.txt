@@ -1,0 +1,10 @@
+Demonstração do Gerador de Sites.
+
+Quando o HTML principal existir, coloque o arquivo index.html nesta pasta
+(junto com os CSS, JavaScript e imagens que ele usar) e atualize o campo
+preview em js/projects.js:
+
+  preview: 'projects/gerador-sites/index.html'
+
+Enquanto preview for null, o card abre um aviso de que a demonstração está sendo preparada.
+Não crie um link para um arquivo que ainda não existe.

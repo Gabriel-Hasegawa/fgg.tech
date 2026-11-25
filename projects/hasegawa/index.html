@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="pageTitle">Hasegawa Denki | Instalação e Manutenção Elétrica</title>
+  <meta name="description"
+    content="Serviços de instalação, manutenção e soluções elétricas residenciais, comerciais e industriais com alto padrão de qualidade e segurança."
+    data-i18n="metaDesc">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JavaScript (Deferred) -->
+  <script src="js/translations.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- =========================================================================
+       1. Header & Navigation Bar
+       ========================================================================= -->
+  <header class="header-navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="#inicio" class="brand-logo" aria-label="Hasegawa Denki Home">
+        <img src="images/logo.svg" alt="Hasegawa Denki - Soluções Elétricas" width="230" height="42">
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-links" id="navLinks" role="navigation" aria-label="Navegação Principal">
+        <a href="#inicio" class="nav-link active" data-i18n="navHome">Início</a>
+        <a href="#servicos" class="nav-link" data-i18n="navServices">Serviços</a>
+        <a href="#empresa" class="nav-link" data-i18n="navAbout">Sobre Nós</a>
+        <a href="#projetos" class="nav-link" data-i18n="navProjects">Projetos</a>
+        <a href="#contato" class="nav-link" data-i18n="navContact">Contato</a>
+      </nav>
+
+      <!-- Action Elements: Language Selector & CTA Button -->
+      <div class="nav-actions">
+        <!-- Language Dropdown -->
+        <div class="language-selector" id="languageSelector">
+          <button class="lang-btn" id="languageButton" aria-haspopup="true" aria-expanded="false"
+            aria-label="Selecionar Idioma">
+            <span class="globe-icon">🌐</span>
+            <span id="currentLangLabel">PT-BR</span>
+            <span class="arrow-icon">▼</span>
+          </button>
+          <div class="lang-dropdown" id="languageMenu" role="menu">
+            <button class="lang-option selected" data-lang="pt" role="menuitem">
+              <span class="flag">🇧🇷</span> Português (BR)
+            </button>
+            <button class="lang-option" data-lang="en" role="menuitem">
+              <span class="flag">🇺🇸</span> English (US)
+            </button>
+            <button class="lang-option" data-lang="es" role="menuitem">
+              <span class="flag">🇪🇸</span> Español (ES)
+            </button>
+            <button class="lang-option" data-lang="ja" role="menuitem">
+              <span class="flag">🇯🇵</span> 日本語 (JP)
+            </button>
+          </div>
+        </div>
+
+        <!-- Primary CTA Button -->
+        <a href="#contato" class="btn-primary nav-cta-btn open-quote-modal" id="navCtaBtn">
+          <span class="icon">⚡</span>
+          <span data-i18n="navCta">Solicitar Orçamento</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================================
+         2. Hero Section
+         ======================================================================= -->
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="section-eyebrow" data-i18n="heroEyebrow">
+            SOLUÇÕES ELÉTRICAS COM QUALIDADE E SEGURANÇA
+          </span>
+          <h1 class="hero-title" data-i18n="heroTitle">
+            Instalação e Manutenção de Sistemas Elétricos
+          </h1>
+          <p class="hero-subtitle" data-i18n="heroSubtitle">
+            Residencial, Comercial e Industrial. Conte com a Hasegawa Denki para manter sua energia sempre funcionando
+            com eficiência e segurança.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contato" class="btn-primary open-quote-modal" id="heroQuoteBtn">
+              <span class="icon">⚡</span>
+              <span data-i18n="heroCtaPrimary">Solicitar Orçamento</span>
+            </a>
+            <a href="#servicos" class="btn-secondary" id="heroServicesBtn">
+              <span class="icon">▶</span>
+              <span data-i18n="heroCtaSecondary">Conheça nossos serviços</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image-wrapper reveal">
+          <div class="hero-accent-shape"></div>
+          <div class="hero-image-card">
+            <img src="images/hero.jpg" alt="Profissional qualificado da Hasegawa Denki realizando manutenção elétrica"
+              width="540" height="480">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         3. Services Section ("Nossos Serviços")
+         ======================================================================= -->
+    <section class="services" id="servicos">
+      <div class="container">
+        <div class="services-header reveal">
+          <span class="section-eyebrow" data-i18n="servicesEyebrow">
+            NOSSOS SERVIÇOS
+          </span>
+          <h2 class="section-title" data-i18n="servicesTitle">
+            Expertise Técnica em Soluções Elétricas
+          </h2>
+          <p class="section-subtitle" data-i18n="servicesSubtitle">
+            Oferecemos serviços completos para garantir o bom funcionamento e a segurança das suas instalações
+            elétricas, com profissionais qualificados e equipamentos de ponta.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service Card 1: Instalações Elétricas -->
+          <article class="service-card reveal">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <h3 data-i18n="card1Title">Instalações Elétricas</h3>
+            <ul class="service-list">
+              <li data-i18n="card1Item1">Residenciais</li>
+              <li data-i18n="card1Item2">Comerciais</li>
+              <li data-i18n="card1Item3">Industriais</li>
+            </ul>
+          </article>
+
+          <!-- Service Card 2: Manutenção Preventiva -->
+          <article class="service-card reveal">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                </path>
+              </svg>
+            </div>
+            <h3 data-i18n="card2Title">Manutenção Preventiva</h3>
+            <ul class="service-list">
+              <li data-i18n="card2Item1">Análise e inspeção</li>
+              <li data-i18n="card2Item2">Correção de falhas</li>
+              <li data-i18n="card2Item3">Aumento da vida útil</li>
+            </ul>
+          </article>
+
+          <!-- Service Card 3: Manutenção Corretiva -->
+          <article class="service-card reveal">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path
+                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                </path>
+              </svg>
+            </div>
+            <h3 data-i18n="card3Title">Manutenção Corretiva</h3>
+            <ul class="service-list">
+              <li data-i18n="card3Item1">Diagnóstico rápido</li>
+              <li data-i18n="card3Item2">Reparos especializados</li>
+              <li data-i18n="card3Item3">Redução de downtime</li>
+            </ul>
+          </article>
+
+          <!-- Service Card 4: Quadros Elétricos -->
+          <article class="service-card reveal">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+                <line x1="8" y1="14" x2="8" y2="18"></line>
+                <line x1="12" y1="14" x2="12" y2="18"></line>
+                <line x1="16" y1="14" x2="16" y2="18"></line>
+              </svg>
+            </div>
+            <h3 data-i18n="card4Title">Quadros Elétricos</h3>
+            <ul class="service-list">
+              <li data-i18n="card4Item1">Projetos e montagem</li>
+              <li data-i18n="card4Item2">Adequação às normas</li>
+              <li data-i18n="card4Item3">Organização e segurança</li>
+            </ul>
+          </article>
+
+          <!-- Service Card 5: Sistemas de Energia -->
+          <article class="service-card reveal">
+            <div class="service-icon-box" aria-hidden="true" style="color: var(--red);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <h3 data-i18n="card5Title">Sistemas de Energia</h3>
+            <ul class="service-list">
+              <li data-i18n="card5Item1">Energia estabilizada</li>
+              <li data-i18n="card5Item2">Painéis solares</li>
+              <li data-i18n="card5Item3">Backup e nobreaks</li>
+            </ul>
+          </article>
+
+          <!-- Service Card 6: Projetos Elétricos -->
+          <article class="service-card reveal">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6"></path>
+                <path d="M10 22h4"></path>
+                <path
+                  d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z">
+                </path>
+              </svg>
+            </div>
+            <h3 data-i18n="card6Title">Projetos Elétricos</h3>
+            <ul class="service-list">
+              <li data-i18n="card6Item1">Dimensionamento</li>
+              <li data-i18n="card6Item2">Adequação de carga</li>
+              <li data-i18n="card6Item3">Laudos e ART</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. About Us Section ("Sobre a Hasegawa Denki")
+         ======================================================================= -->
+    <section class="about" id="empresa">
+      <div class="container about-grid">
+        <div class="about-content reveal">
+          <span class="section-eyebrow" data-i18n="aboutEyebrow">
+            SOBRE A HASEGAWA DENKI
+          </span>
+          <h2 class="section-title" data-i18n="aboutTitle">
+            Tradição, Qualidade e Compromisso com Você
+          </h2>
+          <p class="about-desc" data-i18n="aboutDesc">
+            A Hasegawa Denki é uma empresa especializada em instalação e manutenção de sistemas elétricos, atuando com
+            excelência no atendimento e na entrega de soluções seguras e eficientes para residências, comércios e
+            indústrias.
+          </p>
+
+          <div class="about-features">
+            <!-- Feature 1: Segurança -->
+            <div class="about-feature-item">
+              <div class="feature-icon-badge">✓</div>
+              <div class="feature-text">
+                <strong data-i18n="aboutFeat1Title">Segurança</strong>
+                <span data-i18n="aboutFeat1Desc"> em todos os serviços</span>
+              </div>
+            </div>
+
+            <!-- Feature 2: Profissionais qualificados -->
+            <div class="about-feature-item">
+              <div class="feature-icon-badge">✓</div>
+              <div class="feature-text">
+                <strong data-i18n="aboutFeat2Title">Profissionais qualificados</strong>
+                <span data-i18n="aboutFeat2Desc"> e experientes</span>
+              </div>
+            </div>
+
+            <!-- Feature 3: Atendimento -->
+            <div class="about-feature-item">
+              <div class="feature-icon-badge">✓</div>
+              <div class="feature-text">
+                <strong data-i18n="aboutFeat3Title">Atendimento</strong>
+                <span data-i18n="aboutFeat3Desc"> ágil e confiável para sua necessidade</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-image-wrapper reveal">
+          <div class="about-image-card">
+            <img src="images/industrial.jpg" alt="Instalação e infraestrutura elétrica industrial de alta precisão"
+              width="540" height="440">
+            <div class="about-image-banner">
+              <p data-i18n="aboutBadgeText">Energia que impulsiona seu dia a dia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. Statistics / Indicators Section
+         ======================================================================= -->
+    <section class="stats" id="estatisticas">
+      <div class="container stats-grid">
+        <!-- Stat 1 -->
+        <div class="stat-item reveal">
+          <div class="stat-number-wrapper">
+            <span class="stat-number with-plus"><span class="plus-symbol">+</span> 3</span>
+            <span class="stat-unit" data-i18n="stat1Unit">anos</span>
+          </div>
+          <span class="stat-label" data-i18n="stat1Label">de experiência</span>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="stat-item reveal">
+          <div class="stat-number-wrapper">
+            <span class="stat-number">100%</span>
+          </div>
+          <span class="stat-label" data-i18n="stat2Label">clientes satisfeitos</span>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="stat-item reveal">
+          <div class="stat-number-wrapper">
+            <span class="stat-number with-plus"><span class="plus-symbol">+</span> 200</span>
+          </div>
+          <span class="stat-label" data-i18n="stat3Label">projetos concluídos</span>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="stat-item reveal">
+          <div class="stat-number-wrapper">
+            <span class="stat-number">24/7</span>
+          </div>
+          <span class="stat-label" data-i18n="stat4Label">suporte e atendimento</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. Featured Projects / Portfolio Section
+         ======================================================================= -->
+    <section class="projects" id="projetos">
+      <div class="container">
+        <div class="projects-header reveal">
+          <div>
+            <span class="section-eyebrow" data-i18n="projectsEyebrow">PORTFÓLIO E CASOS DE SUCESSO</span>
+            <h2 class="section-title" data-i18n="projectsTitle">Obras e Instalações em Destaque</h2>
+            <p class="section-subtitle" data-i18n="projectsSubtitle">Conheça alguns dos projetos executados com rigor
+              técnico, pontualidade e conformidade com as normas regulamentadoras NR-10 e NBR-5410.</p>
+          </div>
+
+          <div class="projects-filter-bar">
+            <button class="filter-btn active" data-filter="all" data-i18n="filterAll">Todos os Projetos</button>
+            <button class="filter-btn" data-filter="industrial" data-i18n="filterIndustrial">Industrial</button>
+            <button class="filter-btn" data-filter="commercial" data-i18n="filterCommercial">Comercial &
+              Predial</button>
+            <button class="filter-btn" data-filter="solar" data-i18n="filterSolar">Energia Solar</button>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card reveal" data-category="industrial">
+            <div class="project-image-box">
+              <img src="images/projects/project-1.jpg"
+                alt="Painel elétrico de distribuição montado pela Hasegawa Denki">
+              <span class="project-badge" data-i18n="project1Tag">Industrial / Quadros</span>
+            </div>
+            <div class="project-body">
+              <h3 data-i18n="project1Title">Montagem de Centro de Distribuição & Painéis</h3>
+              <p data-i18n="project1Desc">Engenharia e montagem de quadros de comando e distribuição com barramentos
+                blindados para indústria farmacêutica.</p>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card reveal" data-category="solar">
+            <div class="project-image-box">
+              <img src="images/projects/project-2.jpg" alt="Instalação fotovoltaica comercial rooftop">
+              <span class="project-badge" data-i18n="project2Tag">Sustentabilidade / Solar</span>
+            </div>
+            <div class="project-body">
+              <h3 data-i18n="project2Title">Parque Solar Comercial Rooftop 150kWp</h3>
+              <p data-i18n="project2Desc">Implementação de sistema fotovoltaico conectado à rede, com inversores
+                inteligentes e homologação na concessionária.</p>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card reveal" data-category="commercial">
+            <div class="project-image-box">
+              <img src="images/projects/project-3.jpg" alt="Diagnóstico elétrico e termografia preditiva">
+              <span class="project-badge" data-i18n="project3Tag">Diagnóstico & Preditiva</span>
+            </div>
+            <div class="project-body">
+              <h3 data-i18n="project3Title">Termografia e Manutenção Preditiva</h3>
+              <p data-i18n="project3Desc">Inspeção termográfica de alta resolução em subestações de média tensão,
+                eliminando riscos de paradas não programadas.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. Contact & Quote Request Section
+         ======================================================================= -->
+    <section class="contact" id="contato">
+      <div class="container contact-grid">
+        <!-- Direct Contact Details -->
+        <div class="contact-info-panel reveal">
+          <span class="section-eyebrow" data-i18n="contactEyebrow">FALE CONOSCO</span>
+          <h2 class="section-title" data-i18n="contactTitle">Pronto para Modernizar suas Instalações Elétricas?</h2>
+          <p class="section-subtitle" data-i18n="contactSubtitle">Solicite um orçamento sem compromisso. Nossa equipe
+            técnica entrará em contato para entender suas necessidades e apresentar a melhor solução técnica e
+            econômica.</p>
+
+          <div class="contact-cards-list">
+            <!-- Card: Telefone / WhatsApp -->
+            <a href="tel:+819063821725" class="contact-card-item" aria-label="Ligar para +81 90 6382-1725">
+              <div class="contact-icon-box">📞</div>
+              <div class="contact-detail">
+                <h4 data-i18n="contactPhoneLabel">Central Telefônica & WhatsApp</h4>
+                <p>+81 90 6382-1725</p>
+              </div>
+            </a>
+
+            <!-- Card: E-mail Comercial -->
+            <a href="mailto:haseg.denk@gmail.com" class="contact-card-item"
+              aria-label="Enviar e-mail para haseg.denk@gmail.com">
+              <div class="contact-icon-box">✉️</div>
+              <div class="contact-detail">
+                <h4 data-i18n="contactEmailLabel">E-mail Comercial</h4>
+                <p>haseg.denk@gmail.com</p>
+              </div>
+            </a>
+
+            <!-- Card: Localização -->
+            <a href="https://maps.app.goo.gl/ydsvUCH8io3KhqLy8?g_st=aw" target="_blank" rel="noopener noreferrer"
+              class="contact-card-item" aria-label="Ver localização Kanagawa Japão no Google Maps">
+              <div class="contact-icon-box">📍</div>
+              <div class="contact-detail">
+                <h4 data-i18n="contactLocationLabel">Localização</h4>
+                <p data-i18n="contactLocationVal">Kanagawa - Japão</p>
+              </div>
+            </a>
+
+            <!-- Card: Horário de Atendimento -->
+            <div class="contact-card-item">
+              <div class="contact-icon-box">⏰</div>
+              <div class="contact-detail">
+                <h4 data-i18n="contactHoursLabel">Horário de Atendimento</h4>
+                <p data-i18n="contactHoursVal">Segunda a Sexta: 07h às 18h | Emergências 24h</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Budget Request Form -->
+        <div class="contact-form-card reveal">
+          <form class="contact-form" id="mainContactForm">
+            <div class="form-group">
+              <label for="formName" data-i18n="formNameLabel">Nome completo</label>
+              <input type="text" id="formName" name="name" class="form-control" required
+                placeholder="Ex: Akira Hasegawa" data-i18n-placeholder="formNamePlaceholder">
+            </div>
+
+            <div class="form-group">
+              <label for="formEmail" data-i18n="formEmailLabel">E-mail corporativo ou pessoal</label>
+              <input type="email" id="formEmail" name="email" class="form-control" required
+                placeholder="exemplo@dominio.com.br" data-i18n-placeholder="formEmailPlaceholder">
+            </div>
+
+            <div class="form-group">
+              <label for="formPhone" data-i18n="formPhoneLabel">Telefone / WhatsApp</label>
+              <input type="tel" id="formPhone" name="phone" class="form-control" required placeholder="(11) 98765-4321"
+                data-i18n-placeholder="formPhonePlaceholder">
+            </div>
+
+            <div class="form-group">
+              <label for="formService" data-i18n="formServiceLabel">Serviço de interesse</label>
+              <select id="formService" name="service" class="form-control">
+                <option value="instalacao" data-i18n="formServiceOption1">Instalação Elétrica (Residencial / Comercial /
+                  Industrial)</option>
+                <option value="preventiva" data-i18n="formServiceOption2">Manutenção Preventiva / Preditiva</option>
+                <option value="corretiva" data-i18n="formServiceOption3">Manutenção Corretiva Urgente</option>
+                <option value="quadros" data-i18n="formServiceOption4">Montagem de Quadros & Painéis</option>
+                <option value="solar" data-i18n="formServiceOption5">Energia Solar Fotovoltaica / Backup</option>
+                <option value="projetos" data-i18n="formServiceOption6">Projetos Elétricos, Laudos e ART</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="formMessage" data-i18n="formMessageLabel">Descreva brevemente a sua necessidade</label>
+              <textarea id="formMessage" name="message" class="form-control" rows="3"
+                placeholder="Detalhe o local, tamanho do imóvel ou equipamento que necessita de intervenção..."
+                data-i18n-placeholder="formMessagePlaceholder"></textarea>
+            </div>
+
+            <div class="form-actions-row">
+              <button type="submit" class="btn-primary" id="btnSubmitContact">
+                <span class="icon">⚡</span>
+                <span data-i18n="formSubmitBtn">Enviar Solicitação de Orçamento</span>
+              </button>
+              <button type="button" class="btn-whatsapp trigger-whatsapp" id="btnWhatsappContact">
+                <span class="icon">💬</span>
+                <span data-i18n="formWhatsAppBtn">WhatsApp Direto</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       8. Footer
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Brand Summary -->
+        <div class="footer-brand-col">
+          <a href="#inicio" class="footer-brand-logo" aria-label="Hasegawa Denki Home">
+            <img src="images/logo-white.svg" alt="Hasegawa Denki" width="220" height="40">
+          </a>
+          <p class="footer-brand-desc" data-i18n="footerBrandDesc">
+            Soluções elétricas com qualidade, segurança e eficiência para o seu projeto, residencial, comercial ou
+            industrial.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links-col">
+          <h4 data-i18n="footerLinksTitle">Navegação Rápida</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#inicio" data-i18n="navHome">Início</a></li>
+            <li><a href="#servicos" data-i18n="navServices">Serviços</a></li>
+            <li><a href="#empresa" data-i18n="navAbout">Sobre Nós</a></li>
+            <li><a href="#projetos" data-i18n="navProjects">Projetos</a></li>
+            <li><a href="#contato" data-i18n="navContact">Contato</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-contact-col">
+          <h4 data-i18n="footerContactTitle">Contato</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <span class="contact-icon">📞</span>
+              <a href="tel:+819063821725">+81 90 6382-1725</a>
+            </div>
+            <div class="footer-contact-item">
+              <span class="contact-icon">✉️</span>
+              <a href="mailto:haseg.denk@gmail.com">haseg.denk@gmail.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <span class="contact-icon">📍</span>
+              <a href="https://maps.app.goo.gl/ydsvUCH8io3KhqLy8?g_st=aw" target="_blank"
+                rel="noopener noreferrer">Kanagawa - Japão</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Sub-bar -->
+      <div class="footer-bottom">
+        <p data-i18n="footerCopyright">© 2024-2026 Hasegawa Denki. Todos os direitos reservados.</p>
+        <div class="footer-motto">
+          <span class="lightning-icon">⚡</span>
+          <span data-i18n="footerMotto">Energia é o nosso trabalho.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       9. Modal: Solicitação de Orçamento Rápido
+       ========================================================================= -->
+  <div class="modal-overlay" id="quoteModal" role="dialog" aria-modal="true" aria-labelledby="modalQuoteTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Fechar Modal">✕</button>
+      <div class="modal-header">
+        <span class="section-eyebrow" data-i18n="servicesEyebrow">NOSSOS SERVIÇOS</span>
+        <h3 class="modal-title" id="modalQuoteTitle" data-i18n="modalTitle">Solicitar Orçamento Rápido</h3>
+        <p class="modal-subtitle" data-i18n="modalSubtitle">Preencha os dados abaixo para receber uma proposta técnica
+          sob medida.</p>
+      </div>
+
+      <form class="contact-form" id="modalContactForm">
+        <div class="form-group">
+          <label data-i18n="formNameLabel">Nome completo</label>
+          <input type="text" id="modalFormName" name="name" class="form-control" required
+            placeholder="Ex: Akira Hasegawa" data-i18n-placeholder="formNamePlaceholder">
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="formEmailLabel">E-mail corporativo ou pessoal</label>
+          <input type="email" id="modalFormEmail" name="email" class="form-control" required
+            placeholder="exemplo@dominio.com.br" data-i18n-placeholder="formEmailPlaceholder">
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="formPhoneLabel">Telefone / WhatsApp</label>
+          <input type="tel" id="modalFormPhone" name="phone" class="form-control" required
+            placeholder="(11) 98765-4321" data-i18n-placeholder="formPhonePlaceholder">
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="formServiceLabel">Serviço de interesse</label>
+          <select id="modalFormService" name="service" class="form-control">
+            <option value="instalacao" data-i18n="formServiceOption1">Instalação Elétrica (Residencial / Comercial /
+              Industrial)</option>
+            <option value="preventiva" data-i18n="formServiceOption2">Manutenção Preventiva / Preditiva</option>
+            <option value="corretiva" data-i18n="formServiceOption3">Manutenção Corretiva Urgente</option>
+            <option value="quadros" data-i18n="formServiceOption4">Montagem de Quadros & Painéis</option>
+            <option value="solar" data-i18n="formServiceOption5">Energia Solar Fotovoltaica / Backup</option>
+            <option value="projetos" data-i18n="formServiceOption6">Projetos Elétricos, Laudos e ART</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="formMessageLabel">Descreva brevemente a sua necessidade</label>
+          <textarea id="modalFormMessage" name="message" class="form-control" rows="3"
+            placeholder="Detalhe o local ou o equipamento..." data-i18n-placeholder="formMessagePlaceholder"></textarea>
+        </div>
+
+        <div class="form-actions-row">
+          <button type="submit" class="btn-primary" style="width: 100%;">
+            <span class="icon">⚡</span>
+            <span data-i18n="formSubmitBtn">Enviar Solicitação de Orçamento</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Feedback -->
+  <div class="toast-notification" id="toastNotification" role="alert">
+    <span class="toast-icon">✓</span>
+    <span id="toastMessage">Solicitação enviada com sucesso!</span>
+  </div>
+
+</body>
+
+</html>

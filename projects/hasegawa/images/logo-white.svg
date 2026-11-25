@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 54" width="320" height="54" fill="none">
+  <!-- HD Badge with white outline in dark mode -->
+  <rect x="2" y="2" width="50" height="50" rx="3" fill="#0B2A4A" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="5" y="5" width="44" height="44" rx="2" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-opacity="0.8"/>
+  
+  <!-- "HD" Lettering inside badge -->
+  <text x="11" y="38" font-family="'Cinzel', 'Times New Roman', 'Georgia', serif" font-weight="900" font-size="30" fill="#FFFFFF" letter-spacing="1">H</text>
+  <text x="27" y="38" font-family="'Cinzel', 'Times New Roman', 'Georgia', serif" font-weight="900" font-size="30" fill="#FFFFFF" letter-spacing="0">D</text>
+  <!-- Decorative electrical lines through D -->
+  <line x1="33" y1="20" x2="44" y2="20" stroke="#0B2A4A" stroke-width="1.5"/>
+  <line x1="35" y1="26" x2="47" y2="26" stroke="#0B2A4A" stroke-width="1.5"/>
+  <line x1="33" y1="32" x2="44" y2="32" stroke="#0B2A4A" stroke-width="1.5"/>
+
+  <!-- Brand Typography in White -->
+  <text x="66" y="35" font-family="'Plus Jakarta Sans', 'Inter', 'Montserrat', -apple-system, sans-serif" font-weight="800" font-size="21" fill="#FFFFFF" letter-spacing="1.5">HASEGAWA DENKI</text>
+  <rect x="66" y="41" width="22" height="2.5" fill="#E30613" rx="1"/>
+</svg>

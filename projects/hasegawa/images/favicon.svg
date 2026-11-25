@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <rect width="64" height="64" rx="10" fill="#0B2A4A"/>
+  <rect x="4" y="4" width="56" height="56" rx="8" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.8"/>
+  <text x="11" y="45" font-family="'Cinzel', 'Times New Roman', serif" font-weight="900" font-size="36" fill="#FFFFFF">H</text>
+  <text x="32" y="45" font-family="'Cinzel', 'Times New Roman', serif" font-weight="900" font-size="36" fill="#FFFFFF">D</text>
+  <rect x="12" y="50" width="40" height="3" fill="#E30613" rx="1.5"/>
+</svg>
