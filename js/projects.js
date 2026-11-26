@@ -15,7 +15,7 @@ window.PROJECTS_DATA = [
   {
     name: 'Case Master Info',
     description: 'Landing page Case Master Info.',
-    image: 'assets/images/project-casemaster.webp',
+    image: 'assets/images/sitecasebox.png',
     status: 'publicado',
     url: 'https://casemasterinfo.com.br/',
     preview: null,
@@ -24,7 +24,7 @@ window.PROJECTS_DATA = [
   {
     name: 'Hasegawa Denki',
     description: 'Landing page Hasegawa Denki.',
-    image: 'assets/images/project-hasegawa.webp',
+    image: 'assets/images/hasegawadbox.png',
     status: 'em-desenvolvimento',
     url: null,
     preview: 'projects/hasegawa/index.html',

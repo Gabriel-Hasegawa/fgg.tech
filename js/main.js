@@ -7,7 +7,7 @@
   const projects = Array.isArray(window.PROJECTS_DATA) ? window.PROJECTS_DATA : [];
 
   const navLinks = Array.from(document.querySelectorAll('.dock a[data-nav]'));
-  const sections = ['inicio', 'solucoes', 'sobre', 'projetos', 'contato']
+  const sections = ['inicio', 'solucoes', 'projetos', 'sobre', 'contato']
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
@@ -31,6 +31,7 @@
   const emailInput = document.getElementById('contact-email');
   const messageInput = document.getElementById('contact-message');
   const fileInput = document.getElementById('contact-files');
+  const consentInput = document.getElementById('contact-consent');
   const fileList = document.getElementById('file-list');
 
   let selectedFiles = [];
@@ -41,6 +42,7 @@
   applyContactConfig();
   renderProjects();
   initNavigation();
+  initProcessTimeline();
   initPreview();
   initEmailForm();
 
@@ -61,13 +63,10 @@
       if (whatsapp.displayNumber) node.textContent = whatsapp.displayNumber;
     });
 
-    const mapsHref = company.mapsQuery
-      ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(company.mapsQuery)}`
-      : '';
-
-    document.querySelectorAll('[data-maps]').forEach((link) => {
-      if (mapsHref) link.href = mapsHref;
-    });
+    const mapsEmbed = document.querySelector('[data-maps-embed]');
+    if (mapsEmbed && company.mapsQuery) {
+      mapsEmbed.src = `https://www.google.com/maps?q=${encodeURIComponent(company.mapsQuery)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+    }
 
     const street = document.querySelector('[data-address-street]');
     const city = document.querySelector('[data-address-city]');
@@ -76,19 +75,34 @@
 
     const instagramReady = typeof instagram.url === 'string' && instagram.url.startsWith('https://');
     document.querySelectorAll('[data-instagram]').forEach((link) => {
+      const isChannel = link.hasAttribute('data-instagram-channel');
       if (!instagramReady) {
-        link.hidden = true;
-        link.removeAttribute('href');
+        if (isChannel) {
+          link.hidden = false;
+          link.removeAttribute('href');
+          link.setAttribute('aria-disabled', 'true');
+          link.classList.add('is-pending');
+          link.addEventListener('click', (event) => event.preventDefault());
+        } else {
+          link.hidden = true;
+          link.removeAttribute('href');
+        }
         return;
       }
       link.hidden = false;
+      link.removeAttribute('aria-disabled');
+      link.classList.remove('is-pending');
       link.href = instagram.url;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
     });
 
     const label = document.querySelector('[data-instagram-label]');
-    if (label) label.textContent = instagram.handle || 'Abrir perfil';
+    if (label) {
+      label.textContent = instagramReady
+        ? (instagram.handle || 'Abrir perfil')
+        : (instagram.handle || 'Em breve');
+    }
   }
 
   function renderProjects() {
@@ -102,7 +116,9 @@
 
     grid.innerHTML = projects.map((project, index) => {
       const external = isPublishedLink(project);
+      const localPreview = isLocalPreview(project.preview);
       const status = statusMeta(project.status);
+      const actionLabel = external ? 'Abrir site' : (localPreview ? 'Ver prévia' : 'Detalhes');
       const tag = external ? 'a' : 'button';
       const attrs = external
         ? `href="${escapeAttr(project.url)}" target="_blank" rel="noopener noreferrer"`
@@ -111,15 +127,21 @@
       return `
         <${tag} class="project-card" ${attrs}>
           <span class="project-media">
-            <img src="${escapeAttr(project.image)}" alt="Prévia do projeto ${escapeAttr(project.name)}" width="1600" height="900" loading="lazy" decoding="async">
+            <img src="${escapeAttr(project.image)}" alt="Prévia do projeto ${escapeAttr(project.name)}" loading="lazy" decoding="async">
           </span>
           <span class="project-copy">
             <span class="project-category">${escapeHtml(project.category || '')}</span>
             <h3>${escapeHtml(project.name || 'Projeto')}</h3>
             <p>${escapeHtml(project.description || '')}</p>
-            <span class="status ${status.className}">
-              <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#${status.icon}"></use></svg>
-              ${escapeHtml(status.label)}
+            <span class="project-footer">
+              <span class="status ${status.className}">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons/sprite.svg#${status.icon}"></use></svg>
+                ${escapeHtml(status.label)}
+              </span>
+              <span class="project-cta">
+                ${escapeHtml(actionLabel)}
+                <svg class="icon icon-sm" aria-hidden="true"><use href="assets/icons/sprite.svg#i-arrow"></use></svg>
+              </span>
             </span>
           </span>
         </${tag}>
@@ -167,6 +189,46 @@
     });
 
     sections.forEach((section) => observer.observe(section));
+  }
+
+  function initProcessTimeline() {
+    const timeline = document.querySelector('[data-process-timeline]');
+    if (!timeline) return;
+
+    const steps = Array.from(timeline.querySelectorAll('.step-item'));
+    if (!steps.length) return;
+
+    const revealAll = () => {
+      timeline.classList.add('is-animating');
+      steps.forEach((step) => step.classList.add('is-active'));
+    };
+
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion || !('IntersectionObserver' in window)) {
+      revealAll();
+      return;
+    }
+
+    let triggered = false;
+    const observer = new IntersectionObserver((entries) => {
+      if (triggered) return;
+      const entered = entries.some((entry) => entry.isIntersecting);
+      if (!entered) return;
+
+      triggered = true;
+      observer.disconnect();
+
+      timeline.classList.add('is-animating');
+      steps.forEach((step, index) => {
+        window.setTimeout(() => {
+          step.classList.add('is-active');
+        }, index * 420);
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    observer.observe(timeline);
   }
 
   function initPreview() {
@@ -240,6 +302,12 @@
       fileInput.value = '';
     });
 
+    if (consentInput) {
+      consentInput.addEventListener('change', () => {
+        if (consentInput.checked) consentInput.removeAttribute('aria-invalid');
+      });
+    }
+
     emailForm.addEventListener('submit', submitEmail);
     syncEmailAvailability();
   }
@@ -267,6 +335,7 @@
     emailInput.disabled = !ready || sending;
     messageInput.disabled = !ready || sending;
     fileInput.disabled = !ready || sending;
+    if (consentInput) consentInput.disabled = !ready || sending;
   }
 
   function addFiles(fileListInput) {
@@ -350,6 +419,14 @@
       return;
     }
 
+    if (consentInput && !consentInput.checked) {
+      consentInput.setAttribute('aria-invalid', 'true');
+      showFormError('Concorde com a Política de Privacidade para enviar a mensagem.');
+      consentInput.focus();
+      return;
+    }
+    if (consentInput) consentInput.removeAttribute('aria-invalid');
+
     const formData = new FormData();
     formData.append('email', email);
     formData.append('message', message);
@@ -423,6 +500,7 @@
     emailStatus.textContent = '';
     emailInput.removeAttribute('aria-invalid');
     messageInput.removeAttribute('aria-invalid');
+    if (consentInput) consentInput.removeAttribute('aria-invalid');
     syncEmailAvailability();
   }
 
